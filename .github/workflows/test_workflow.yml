@@ -5,11 +5,16 @@ on:
     branches:
         - main
 
+
 jobs:
   build:
     runs-on: macos-11
     steps:
       - uses: actions/checkout@main
+      - name: prepare
+        run: swift package init
+      - name: generate
+        run: swift package generate-xcodeproj
       - name: Build
       # run: xcodebuild
         run: swift build -v
