@@ -12,11 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: prepare
-        run: swift package init
-      - name: generate
-        run: swift package generate-xcodeproj
+        run: |
+        swift package init
+        swift package generate-xcodeproj
       - name: Build
-      # run: xcodebuild
         run: swift build -v
       # - name: Run tests
       #   run: swift test -v
